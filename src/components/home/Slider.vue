@@ -18,7 +18,7 @@
     </div>
     <div class="slider" :style="{'margin-left': '-' + offset + 'px'}">
       <div v-for="item in items" :key="item.title">
-        <AnimeCard :anime="item" />
+        <AnimeCard :mediaType="mediaType" :anime="item" />
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@ export default {
   components: {
     AnimeCard,
   },
-  props: ["items", "title"],
+  props: ["items", "title", "mediaType"],
   data: function() {
     return {
       offset: 0

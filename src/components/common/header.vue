@@ -7,8 +7,7 @@
       </router-link>
       <div class="menu">
         <router-link to="/" class="menu-link">Home</router-link>
-        <router-link to="/animes" class="menu-link">Animes</router-link>
-        <router-link to="/mangas" class="menu-link">Mangas</router-link>
+        <router-link to="/about" class="menu-link">About</router-link>
       </div>
     </div>
     <div class="searchbar">

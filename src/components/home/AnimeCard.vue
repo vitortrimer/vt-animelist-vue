@@ -5,9 +5,9 @@
       <div class="card--content--title">
         {{ anime.title }}
       </div>
-      <button class="card--content--details">
+      <router-link :to="'/details/' + mediaType + '/' + anime.mal_id" class="card--content--details">
         DETAILS
-      </button>
+      </router-link>
       <div class="card--content--footer">
         <div>{{ anime.type }}</div>
         <div>{{ anime.start_date }}</div>
@@ -19,7 +19,7 @@
 <script>
 export default {
   name: "AnimeCard",
-  props: ["anime"]
+  props: ["anime", "mediaType"]
 };
 </script>
 
@@ -81,6 +81,9 @@ export default {
 }
 
 .card--content--details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-transform: uppercase;
   font-size: 24px;
   font-weight: bold;
@@ -94,6 +97,7 @@ export default {
   border: 2px solid #e9e9e9;
   border-radius: 15px;
   transition: transform 300ms ease-in-out;
+  text-decoration: none;
 }
 
 .card--content--details:hover {
