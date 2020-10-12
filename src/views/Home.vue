@@ -7,12 +7,9 @@
             <div class="featured--content--title">
               Kimetsu no Yayba
             </div>
-            <div class="featured--content--synopsis">
-              A family is attacked by demons and only two members survive -
-              Tanjiro and his sister Nezuko, who is turning into a demon slowly.
-              Tanjiro sets out to become a demon slayer to avenge his family and
-              cure his sister.
-            </div>
+            <span class="featured--content--synopsis">
+              Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado's shoulders. Though living impoverished on a remote mountain, the Kamado family are able to enjoy a relatively peaceful and happy life. One day, Tanjirou decides to go down to the local village to make a little money selling charcoal. On his way back, night falls, forcing Tanjirou to take shelter in the house of a strange man, who warns him of the existence of flesh-eating demons that lurk in the woods at night. When he finally arrives back home the next day, he is met with a horrifying sight—his whole family has been slaughtered. Worse still, the sole survivor is his sister Nezuko, who has been turned into a bloodthirsty demon. Consumed by rage and hatred, Tanjirou swears to avenge his family and stay by his only remaining sibling. Alongside the mysterious group calling themselves the Demon Slayer Corps, Tanjirou will do whatever it takes to slay the demons and protect the remnants of his beloved sister's humanity.
+            </span>
             <div class="featured--content--action">
               <button class="featured--content--action--button">
                 Details
@@ -24,25 +21,35 @@
     </div>
     <div class="home--sliders">
       <div class="home--sliders--item">
-        <Separator :title="'Top upcoming'" />
-        <Slider :items="this.$store.state.topAnimes" />
+        <Slider :title="'Airing Animes'" :items="this.$store.state.topAiringAnimes" />
+        <Slider :title="'Today Releases'" :items="this.$store.state.todayAnimes" />
+        <Slider :title="'Top upcoming'" :items="this.$store.state.topAnimes" />
+        <Slider :title="'top mangas'" :items="this.$store.state.topMangas" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Separator from "@/components/home/Separator";
 import Slider from "@/components/home/Slider";
 export default {
   name: "Home",
   components: {
-    Separator,
     Slider,
   },
   mounted() {
     this.$store.dispatch("getTopAnimeList");
+    this.$store.dispatch("getTopAiringAnimes");
+    this.$store.dispatch("getTopMangas");
+    this.$store.dispatch("getTodayAnimes", this.getCurrentDay());
   },
+  methods: {
+    getCurrentDay: function() {
+      const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const now = new Date();
+      return days[now.getDay()]
+    }
+  }
 };
 </script>
 
@@ -80,6 +87,12 @@ export default {
   max-width: 30vw;
 }
 
+@media (max-width: 1023px) {
+  .featured--content {
+    max-width: 40vw;
+  }
+}
+
 @media (max-width: 767px) {
   .featured--content {
     margin: 0;
@@ -100,6 +113,10 @@ export default {
 .featured--content--synopsis {
   font-size: 16px;
   margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 12;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .featured--content--action {

@@ -19,39 +19,40 @@
 <script>
 export default {
   name: "AnimeCard",
-  props: ["anime"],
+  props: ["anime"]
 };
 </script>
 
 <style scoped>
 .card {
-  margin-left: 24px;
+  margin-left: 12px;
   position: relative;
   width: 200px;
   height: 300px;
   transition: 300ms ease-in-out;
   cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
 }
 
 .card:hover {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-  margin-left: 30px;
-  margin-right: 6px;
 }
 
 .card:hover .card-image {
-  transform: scale(1.1);
-  filter: blur(8px);
-  -webkit-filter: blur(2px);
+  transform: scale(1);
+  filter: blur(6px);
+  -webkit-filter: blur(1px);
 }
 
 .card:hover .card--content {
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.5);
-  transform: scale(1.1);
+  transform: scale(1);
 }
 
 .card-image {
+  transform: scale(0.9);
   width: 200px;
   height: 300px;
   object-fit: cover;
@@ -71,6 +72,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+  transform: scale(0.9);
 }
 
 .card--content--title {
@@ -91,6 +93,11 @@ export default {
   color: #e9e9e9;
   border: 2px solid #e9e9e9;
   border-radius: 15px;
+  transition: transform 300ms ease-in-out;
+}
+
+.card--content--details:hover {
+  transform: translateY(-3px);
 }
 
 .card--content--footer {

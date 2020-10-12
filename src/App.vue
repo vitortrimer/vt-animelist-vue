@@ -38,4 +38,9 @@ select {
   font-family: "Roboto", sans-serif;
 }
 
+button {
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
 </style>
