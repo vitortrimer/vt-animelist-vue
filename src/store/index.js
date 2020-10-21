@@ -33,7 +33,6 @@ export default new Vuex.Store({
       state.todayAnimes = data[getToday().toLowerCase()]
     },
     setDetailed(state, data) {
-      console.log(data)
       state.detailed = data
     },
   },

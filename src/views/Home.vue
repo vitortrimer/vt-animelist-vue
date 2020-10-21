@@ -134,9 +134,10 @@ export default {
 }
 
 .featured--content--synopsis {
+  overflow: hidden;
+  display: -webkit-box;
   font-size: 16px;
   margin-bottom: 24px;
-  display: inline-block;
   -webkit-line-clamp: 12;
   -webkit-box-orient: vertical;
   overflow: hidden;
