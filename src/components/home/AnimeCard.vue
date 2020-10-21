@@ -1,19 +1,19 @@
 <template>
-  <div class="card">
+  <router-link :to="'/details/' + mediaType + '/' + anime.mal_id" class="card">
     <img class="card-image" :src="anime.image_url" :alt="anime.title" />
     <div class="card--content">
       <div class="card--content--title">
         {{ anime.title }}
       </div>
-      <router-link :to="'/details/' + mediaType + '/' + anime.mal_id" class="card--content--details">
+      <button class="card--content--details">
         DETAILS
-      </router-link>
+      </button>
       <div class="card--content--footer">
         <div>{{ anime.type }}</div>
         <div>{{ anime.start_date }}</div>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -25,14 +25,20 @@ export default {
 
 <style scoped>
 .card {
+  display: flex;
+  flex-direction: column;
   margin-left: 12px;
   position: relative;
   width: 200px;
   height: 300px;
   transition: 300ms ease-in-out;
   cursor: pointer;
+  border-radius: 8px;
   -webkit-user-drag: none;
   -webkit-user-select: none;
+
+  color: inherit;
+  text-decoration: none;
 }
 
 .card:hover {
@@ -41,21 +47,23 @@ export default {
 
 .card:hover .card-image {
   transform: scale(1);
-  filter: blur(6px);
-  -webkit-filter: blur(1px);
 }
 
 .card:hover .card--content {
+  backdrop-filter: blur(2px);
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.5);
   transform: scale(1);
 }
 
 .card-image {
-  transform: scale(0.9);
   width: 200px;
   height: 300px;
   object-fit: cover;
+
+  border-radius: 8px;
+
+  transform: scale(0.9);
   transition: 300ms ease-in-out;
 }
 
@@ -73,6 +81,7 @@ export default {
   top: 0;
   left: 0;
   transform: scale(0.9);
+  border-radius: 8px;
 }
 
 .card--content--title {

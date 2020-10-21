@@ -19,7 +19,7 @@
       <span class="material-icons searchbar--icon">search</span>
     </div>
     <div class="actions">
-      <div class="user-avatar">VT</div>
+      <div class="user-avatar"></div>
     </div>
   </header>
 </template>

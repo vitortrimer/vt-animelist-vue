@@ -16,7 +16,8 @@
               </span>
               <div class="featured--content--action">
                 <router-link :to="'/details/anime/40456'" class="featured--content--action--button">
-                  Details
+                  <span class="material-icons">theaters</span>
+                  <span>Details</span>
                 </router-link>
               </div>
             </div>
@@ -63,11 +64,18 @@ export default {
 
 <style>
 .featured {
-  height: calc(100vh - 60px);
+  height: calc(70vh);
   background-size: cover;
   background-position: center;
   background-image: url(https://pbs.twimg.com/media/EVP0f8iUwAIjf4w?format=jpg&name=4096x4096);
 }
+
+@media (max-width: 767px) {
+  .featured {
+    height: calc(100vh - 60px);
+  }
+}
+
 .featured--vertical {
   width: inherit;
   height: inherit;
@@ -95,9 +103,15 @@ export default {
   max-width: 30vw;
 }
 
+@media (max-width: 1440px) {
+  .featured--content {
+    max-width: 50vw;
+  }
+}
+
 @media (max-width: 1023px) {
   .featured--content {
-    max-width: 40vw;
+    max-width: 60vw;
   }
 }
 
@@ -111,6 +125,7 @@ export default {
 }
 
 .featured--content--title {
+  margin-top: -70px;
   font-size: 32px;
   color: #ececec;
   font-weight: bold;
@@ -121,7 +136,7 @@ export default {
 .featured--content--synopsis {
   font-size: 16px;
   margin-bottom: 24px;
-  display: -webkit-box;
+  display: inline-block;
   -webkit-line-clamp: 12;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -133,20 +148,26 @@ export default {
 }
 
 .featured--content--action--button {
-  background: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fd9330;
   outline: none;
-  border: 2px solid #eee;
+  border: none;
   padding: 12px;
   font-size: 18px;
-  color: #eee;
+  color: #fff;
   font-weight: bold;
   text-transform: uppercase;
-  border-radius: 18px;
-  width: 120px;
+  border-radius: 8px;
+  width: 125px;
   cursor: pointer;
   transition: 300ms ease-in-out;
-  text-align: center;
   text-decoration: none;
+}
+
+.featured--content--action--button span:first-child {
+  margin-right: 8px;
 }
 
 .featured--content--action--button:hover {
