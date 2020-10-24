@@ -1,6 +1,6 @@
 # My Animelist Vue
-
-## WIP
+This is a test project made with Vuejs, just trying a free anime API, Vuex and Vue Router. [Try it live](https://animedia.netlify.app)
+![App screenshot](https://i.imgur.com/wJP7wiz.png)
 
 ## Project setup
 
